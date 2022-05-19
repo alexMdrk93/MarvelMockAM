@@ -1,0 +1,90 @@
+{
+    "Movies":[
+        {
+            "id": 1,
+            "img": "",
+            "title": "",
+            "date": 2022
+        }
+    ],
+    "Characters":[
+        {
+            "id": 1,
+            "actorImg": "",
+            "heroImg": "",
+            "actorName": "",
+            "heroName": "",
+            "description": ""
+        }
+    ],
+    "SuperPowers":[
+        {
+            "id": 1,
+            "name": "",
+            "characterId": 1
+        }
+    ],
+    "Users":[
+        {
+
+        }
+    ],
+    "Mutants":[
+        {
+            "id": 1,
+            "nume": "Clark",
+            "prenume": "Kent",
+            "numeDeErou": "SuperMan",
+            "numeSuper": "laserFrate",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          },
+          {
+            "id": 2,
+            "nume": "Downey-Jr",
+            "prenume": "Robert",
+            "numeDeErou": "IronMan",
+            "numeSuper": "zboaraPuiule",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          },
+          {
+            "id": 3,
+            "nume": "Evans",
+            "prenume": "Chris",
+            "numeDeErou": "CaptainAmerica",
+            "numeSuper": "farfurieSburatoare",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          },
+          {
+            "id": 4,
+            "nume": "Ruffalo",
+            "prenume": "Mark",
+            "numeDeErou": "Hulk",
+            "numeSuper": "mareleVerde",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          },
+          {
+            "id": 5,
+            "nume": "Hemsworth",
+            "prenume": "Chris",
+            "numeDeErou": "Thor",
+            "numeSuper": "staBinePeCiocan",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          },
+          {
+            "id": 6,
+            "nume": "Hiddleston",
+            "prenume": "Tom",
+            "numeDeErou": "Loki",
+            "numeSuper": "dracImpielitat",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          },
+          {
+            "id": 7,
+            "nume": "Jackson",
+            "prenume": "Samuel",
+            "numeDeErou": "NickFury",
+            "numeSuper": "putinChior",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+          }
+    ]
+}
