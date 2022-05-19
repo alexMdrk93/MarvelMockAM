@@ -1,0 +1,7 @@
+.carouselContainer{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(49,49,49);
+}

@@ -1,0 +1,48 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(32, 32, 32);
+  height: 52px;
+}
+
+.menuContainer {
+  border: 2px solid rgb(49, 49, 49);
+  height: 100%;
+}
+
+.menuList {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+li {
+  padding: 0 15px 0 15px;
+}
+
+.insiderLogo {
+  width: 15px;
+  height: 15px;
+}
+
+.userMain {
+  border: 2px solid rgb(49, 49, 49);
+  height: 100%;
+}
+
+.userContainer {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+}
+
+.userLinks, .insiders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
