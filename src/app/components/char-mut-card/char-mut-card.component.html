@@ -1,0 +1,27 @@
+<div class="boss task">
+  <div class="card" style="width: 20rem">
+    <img src="{{ mutant.img }}" class="card-img-top" alt="Logo for the hero" />
+    <div class="card-body">
+      <h3 class="card-title">{{ mutant.numeDeErou }}</h3>
+      <p><span>Name</span>: {{ mutant.nume }}</p>
+      <p><span>Surname</span>: {{ mutant.prenume }}</p>
+      <p><span>SuperPower</span>: {{ mutant.numeSuper }}</p>
+      <div class="centerBtn">
+        <button
+          type="button"
+          class="btn btn-primary updateBtn"
+          (click)="onEdit()"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger deleteBtn"
+          (click)="onDelete()"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,12 @@
 <div class="container d-flex flex-row justify-content-evenly m-5">
   <button type="button" class="btn btn-primary btn-lg">Create</button>
-  <button type="button" class="btn btn-secondary btn-lg">Read</button>
+  <button type="button" class="btn btn-secondary btn-lg" (click)="getMutants()">
+    Read
+  </button>
 </div>
+<app-char-mut-card
+  *ngFor="let mutant of mutants"
+  [mutant]="mutant"
+  (delete)="deleteMutant($event)"
+>
+</app-char-mut-card>

@@ -35,56 +35,86 @@
             "nume": "Clark",
             "prenume": "Kent",
             "numeDeErou": "SuperMan",
-            "numeSuper": "laserFrate",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://fandomwire.com/wp-content/uploads/2022/04/Henry-Cavill-to-return-as-Superman.jpg"
           },
           {
             "id": 2,
             "nume": "Downey-Jr",
             "prenume": "Robert",
             "numeDeErou": "IronMan",
-            "numeSuper": "zboaraPuiule",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://www.giantfreakinrobot.com/wp-content/uploads/2020/10/robert-downey-jr-feature.jpg"
           },
           {
             "id": 3,
             "nume": "Evans",
             "prenume": "Chris",
             "numeDeErou": "CaptainAmerica",
-            "numeSuper": "farfurieSburatoare",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://cdn.mos.cms.futurecdn.net/5z9Tg5GxgKLVXe2Qs2YXb3.jpg"
           },
           {
             "id": 4,
             "nume": "Ruffalo",
             "prenume": "Mark",
             "numeDeErou": "Hulk",
-            "numeSuper": "mareleVerde",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://i.pinimg.com/originals/c2/15/15/c215156bc1b330248b58381cf63ad9ad.jpg"
           },
           {
             "id": 5,
             "nume": "Hemsworth",
             "prenume": "Chris",
             "numeDeErou": "Thor",
-            "numeSuper": "staBinePeCiocan",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://i.pinimg.com/550x/40/74/71/40747151783756ff94b39e018048d30e.jpg"
           },
           {
             "id": 6,
             "nume": "Hiddleston",
             "prenume": "Tom",
             "numeDeErou": "Loki",
-            "numeSuper": "dracImpielitat",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://see.news/wp-content/uploads/2021/02/disney-confirms-tom-hiddleston-in-loki-tv-series-1159835.jpeg"
           },
           {
             "id": 7,
             "nume": "Jackson",
             "prenume": "Samuel",
             "numeDeErou": "NickFury",
-            "numeSuper": "putinChior",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_shield.svg"
+            "img": "https://cdn.vox-cdn.com/thumbor/4ytgg7DC-PQLUpi6UG7DMHG3Oas=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/12794925/nickfury3_avengers.jpg"
           }
-    ]
+    ],
+    "MutantPowers": [
+        {
+          "id": 1,
+          "numeSuper": "laserFrate",
+          "MutantId": 1
+        },
+        {
+          "id": 2,
+          "numeSuper": "zboaraPuiule",
+          "MutantId": 2
+        },
+        {
+          "id": 3,
+          "numeSuper": "farfurieSburatoare",
+          "MutantId": 3
+        },
+        {
+          "id": 4,
+          "numeSuper": "mareleVerde",
+          "MutantId": 4
+        },
+        {
+          "id": 5,
+          "numeSuper": "staBinePeCiocan",
+          "MutantId": 5
+        },
+        {
+          "id": 6,
+          "numeSuper": "dracImpielitat",
+          "MutantId": 6
+        },
+        {
+          "id": 7,
+          "numeSuper": "putinChior",
+          "MutantId": 7
+        }
+      ]
 }
