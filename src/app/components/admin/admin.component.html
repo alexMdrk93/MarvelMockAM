@@ -1,12 +1,32 @@
 <div class="container d-flex flex-row justify-content-evenly m-5">
-  <button type="button" class="btn btn-primary btn-lg">Create</button>
+  <button type="button" class="btn btn-primary btn-lg" (click)="openModal()">
+    Create
+  </button>
   <button type="button" class="btn btn-secondary btn-lg" (click)="getMutants()">
-    Read
+    Display Characters
   </button>
 </div>
 <app-char-mut-card
   *ngFor="let mutant of mutants"
   [mutant]="mutant"
-  (delete)="deleteMutant($event)"
+  (delete)="deleteMutants($event)"
+  (edit)="editMutants($event)"
 >
 </app-char-mut-card>
+
+<table mat-table [dataSource]="mutants" class="mat-elevation-z8 demo-table">
+  <ng-container
+    *ngFor="let column of columns"
+    [matColumnDef]="column.columnDef"
+  >
+    <th mat-header-cell *matHeaderCellDef>
+      {{ column.header }}
+    </th>
+    <td mat-cell *matCellDef="let row">
+      {{ column.cell(row) }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CharMutCardComponent } from './components/char-mut-card/char-mut-card.component';
+import { AddMutantComponent } from './components/add-mutant/add-mutant.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +25,18 @@ import { CharMutCardComponent } from './components/char-mut-card/char-mut-card.c
     HomeComponent,
     MoviesComponent,
     AdminComponent,
-    CharMutCardComponent
+    CharMutCardComponent,
+    AddMutantComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    CommonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Mutants } from '../Mutants';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Mutants } from '../Mutants';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -12,19 +12,29 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class MutantsService { 
   private mutantsURL = 'http://localhost:3000/Mutants'
-  private mixMutantsURL = 'http://localhost:3000/Mutants/?_embed=MutantPowers'
+  private mutantPowersURL = 'http://localhost:3000/Mutants/?_embed=MutantPowers'
 
   constructor(private http: HttpClient) { }
 
   getMutants(): Observable<any[]> {
-    return this.http.get<Mutants[]>(this.mixMutantsURL)
+    return this.http.get<any[]>(this.mutantPowersURL)
   }
 
-  deleteMutant(mutant: Mutants): Observable<Mutants> {
+  deleteMutants(mutant: Mutants): Observable<Mutants> {
     const url = `${this.mutantsURL}/${mutant.id}`;
     return this.http.delete<Mutants>(url);
+  }
+
+  updateMutants(mutant: Mutants): Observable<Mutants> {
+    const url = `${this.mutantsURL}/${mutant.id}`;
+    return this.http.patch<Mutants>(url, mutant, httpOptions);
+  }
+
+  addMutant(mutant: Mutants): Observable<Mutants> {
+    return this.http.post<Mutants>(this.mutantsURL, mutant, httpOptions);
   }
 
 }

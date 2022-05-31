@@ -1,5 +1,5 @@
 export interface Mutants {
-        id: number;
+        id?: number;
         nume: string;
         prenume: string;
         numeDeErou: string;

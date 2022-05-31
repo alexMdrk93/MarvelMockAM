@@ -1,27 +1,23 @@
-<div class="boss task">
-  <div class="card" style="width: 20rem">
-    <img src="{{ mutant.img }}" class="card-img-top" alt="Logo for the hero" />
-    <div class="card-body">
-      <h3 class="card-title">{{ mutant.numeDeErou }}</h3>
-      <p><span>Name</span>: {{ mutant.nume }}</p>
-      <p><span>Surname</span>: {{ mutant.prenume }}</p>
-      <p><span>SuperPower</span>: {{ mutant.numeSuper }}</p>
-      <div class="centerBtn">
-        <button
-          type="button"
-          class="btn btn-primary updateBtn"
-          (click)="onEdit()"
-        >
-          Update
-        </button>
-        <button
-          type="button"
-          class="btn btn-danger deleteBtn"
-          (click)="onDelete()"
-        >
-          Delete
-        </button>
-      </div>
-    </div>
+<div class="card text-center border border-primary shadow-0 w-25">
+  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    <img src="{{ mutant.img }}" class="img-fluid" />
+    <a href="#!">
+      <div
+        class="mask"
+        style="background-color: rgba(251, 251, 251, 0.15)"
+      ></div>
+    </a>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ mutant.numeDeErou }}</h5>
+    <p class="card-text">{{ mutant.nume }} {{ mutant.prenume }}</p>
+
+    <button type="button" class="btn btn-primary" (click)="onEdit()">
+      Edit
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onDelete()">
+      Delete
+    </button>
   </div>
 </div>
