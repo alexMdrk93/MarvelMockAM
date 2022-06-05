@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { map, tap } from 'rxjs';
 import { Mutants } from 'src/app/Mutants';
 import { MutantsService } from 'src/app/services/mutants.service';
 import { AddMutantComponent } from '../add-mutant/add-mutant.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-admin',
@@ -15,7 +16,7 @@ export class AdminComponent implements OnInit {
   mutants: Mutants[] = [];
   title = 'Create mutant modal';
 
-  constructor(private mutantService: MutantsService, private modalService: NgbModal) {}
+  constructor(private mutantService: MutantsService, public dialog: MatDialog) {}
 
   ngOnInit(): void {this.getMutants()}
 
@@ -50,25 +51,25 @@ export class AdminComponent implements OnInit {
     this.mutantService.addMutant(mutant).subscribe((mutant)=>(this.mutants.push(mutant)))
   }
 
-  openModal() {
-    const modalRef = this.modalService.open(AddMutantComponent,
-      {
-        scrollable: false,
-        centered: true
-      });
+  // openModal() {
+  //   const modalRef = this.modalService.open(AddMutantComponent,
+  //     {
+  //       scrollable: false,
+  //       centered: true
+  //     });
 
-    let data = {
-      prop1: 'Some Data',
-      prop2: 'From Parent Component',
-      prop3: 'This Can be anything'
-    }
+  //   let data = {
+  //     prop1: 'Some Data',
+  //     prop2: 'From Parent Component',
+  //     prop3: 'This Can be anything'
+  //   }
 
-    modalRef.componentInstance.fromParent = data;
-    modalRef.result.then((result) => {
-      console.log(result);
-    }, (reason) => {
-    });
-  }
+  //   modalRef.componentInstance.fromParent = data;
+  //   modalRef.result.then((result) => {
+  //     console.log(result);
+  //   }, (reason) => {
+  //   });
+  // }
 
   columns = [
     {
@@ -98,5 +99,15 @@ export class AdminComponent implements OnInit {
   dataSource = this.mutants;
   displayedColumns = this.columns.map(c => c.columnDef);
 
+  openDialog() {
+    const dialogRef = this.dialog.open(AddMutantComponent, {
+      width: '30%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  
   }
 

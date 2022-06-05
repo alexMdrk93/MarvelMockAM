@@ -1,43 +1,23 @@
-<form class="add-form" (ngSubmit)="onSubmit()">
-  <div class="form-control">
-    <label for="nume">Nume</label>
-    <input
-      type="text"
-      name="nume"
-      [(ngModel)]="nume"
-      id="nume"
-      placeholder="Nume"
-    />
-  </div>
-  <div class="form-control">
-    <label for="prenume">Prenume</label>
-    <input
-      type="text"
-      name="prenume"
-      [(ngModel)]="prenume"
-      id="prenume"
-      placeholder="Prenume"
-    />
-  </div>
-  <div class="form-control">
-    <label for="numeDeErou">Nume Caracter</label>
-    <input
-      type="text"
-      name="numeDeErou"
-      [(ngModel)]="numeDeErou"
-      id="numeDeErou"
-      placeholder="Nume Caracter"
-    />
-  </div>
-  <div class="form-control">
-    <label for="numeDeErou">Superputere</label>
-    <input
-      type="text"
-      name="numeDeErou"
-      [(ngModel)]="numeSuper"
-      id="numeDeErou"
-      placeholder="Superputere"
-    />
-  </div>
-  <input type="submit" value="Save Hero" class="btn btn-block" />
-</form>
+<h1 mat-dialog-title>Add new mutant</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="standard">
+    <mat-label>Nume actor</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Prenume actor</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Nume mutant</mat-label>
+    <input matInput />
+  </mat-form-field>
+  <mat-form-field appearance="standard">
+    <mat-label>Superputere</mat-label>
+    <input matInput />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary">Save</button>
+</div>
