@@ -1,6 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Mutants } from 'src/app/Mutants';
-import { Subscription } from 'rxjs';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MutantsService } from 'src/app/services/mutants.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-add-mutant',
@@ -8,41 +11,61 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./add-mutant.component.css']
 })
 export class AddMutantComponent implements OnInit {
-  @Output() onAddMutant: EventEmitter<Mutants> = new EventEmitter();
 
-  nume!: string;
-  prenume!: string;
-  numeDeErou!: string;
-  numeSuper!: string;
-  img!: string;
-  subscription!: Subscription;
+  mutantForm !: FormGroup
+  actionBtn: string = "Save"
+  _snackBar!: MatSnackBar;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private mutantService: MutantsService, private dialogRef: MatDialogRef<AddMutantComponent>, @Inject(MAT_DIALOG_DATA) public editdata: any) { }
 
   ngOnInit(): void {
+    this.mutantForm = this.formBuilder.group({
+      nume: '',
+      prenume: '',
+      numeDeErou: '',
+      numeSuper: '',
+      img: ''
+    });
+
+    if(this.editdata){
+      this.actionBtn = "Update";
+      this.mutantForm.controls['nume'].setValue(this.editdata.nume);
+      this.mutantForm.controls['prenume'].setValue(this.editdata.prenume);
+      this.mutantForm.controls['numeDeErou'].setValue(this.editdata.numeDeErou);
+      this.mutantForm.controls['numeSuper'].setValue(this.editdata.numeSuper);
+      this.mutantForm.controls['img'].setValue(this.editdata.img);
+    }
+    
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+  updateMutant() {
+    this.mutantService.updateMutants(this.mutantForm.value, this.editdata.id).subscribe({
+      next: (res)=>{
+        alert("Eroul a fost actualizat cu succes");
+          this.mutantForm.reset();
+          this.dialogRef.close('update')
+      },
+      error: ()=>{
+        alert('Eroare la actualizare erou')
+      }
+    })
   }
 
   onSubmit(){
-    if(!this.nume){
-      alert('Please add details');
-      return;
+    if(!this.editdata){
+      this.mutantService.addMutant(this.mutantForm.value).subscribe({
+        next: (res)=>{
+          alert("Eroul a fost adaugat cu succes");
+          this.mutantForm.reset();
+          this.dialogRef.close('save')
+        }
+      });
+    }else{
+      this.updateMutant()
     }
-  
-    const newMutant = {
-      nume: this.nume,
-      prenume: this.prenume,
-      numeDeErou: this.numeDeErou,
-      numeSuper: this.numeSuper,
-      img: this.img
-    }
-  
-    this.onAddMutant.emit(newMutant);
-  
-    this.nume='';
-    this.prenume='';
-    this.numeDeErou='';
-    this.numeSuper='';
-    this.img=''
-  
   }
   }

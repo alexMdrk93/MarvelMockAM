@@ -23,13 +23,13 @@ export class MutantsService {
     return this.http.get<any[]>(this.mutantPowersURL)
   }
 
-  deleteMutants(mutant: Mutants): Observable<Mutants> {
-    const url = `${this.mutantsURL}/${mutant.id}`;
-    return this.http.delete<Mutants>(url);
+  deleteMutants(id:number): Observable<Mutants> {
+    const url = `${this.mutantsURL}/${id}`;
+    return this.http.delete<any>(url);
   }
 
-  updateMutants(mutant: Mutants): Observable<Mutants> {
-    const url = `${this.mutantsURL}/${mutant.id}`;
+  updateMutants(mutant: Mutants, id:number): Observable<Mutants> {
+    const url = `${this.mutantsURL}/${id}`;
     return this.http.patch<Mutants>(url, mutant, httpOptions);
   }
 

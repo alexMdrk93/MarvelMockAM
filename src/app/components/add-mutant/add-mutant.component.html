@@ -1,23 +1,41 @@
 <h1 mat-dialog-title>Add new mutant</h1>
 <div mat-dialog-content>
-  <mat-form-field appearance="standard">
-    <mat-label>Nume actor</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field appearance="standard">
-    <mat-label>Prenume actor</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field appearance="standard">
-    <mat-label>Nume mutant</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field appearance="standard">
-    <mat-label>Superputere</mat-label>
-    <input matInput />
-  </mat-form-field>
+  <form [formGroup]="mutantForm">
+    <mat-form-field appearance="standard">
+      <mat-label>Nume actor</mat-label>
+      <input matInput type="text" formControlName="nume" name="nume" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Prenume actor</mat-label>
+      <input matInput type="text" formControlName="prenume" name="prenume" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Nume mutant</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="numeDeErou"
+        name="numeDeErou"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Superputere</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="numeSuper"
+        name="numeSuper"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Image</mat-label>
+      <input matInput type="text" formControlName="img" name="img" />
+    </mat-form-field>
+  </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button mat-raised-button color="primary">Save</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()">
+    {{ actionBtn }}
+  </button>
 </div>
