@@ -31,6 +31,10 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {this.getMutants()}
 
+  addMutants(mutant: Mutants){
+    this.mutantService.addMutant(mutant).subscribe((mutant)=>(this.mutants.push(mutant)))
+  }
+  
   getMutants(){
     this.mutantService.getMutants().pipe(
       map(mutants => { 
@@ -50,23 +54,6 @@ export class AdminComponent implements OnInit {
     .subscribe((mutant) => {this.mutants = mutant; this.dataSource = new MatTableDataSource(mutant); this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort})
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  // deleteMutants(mutant: Mutants) {
-  //   this.mutantService.deleteMutants(mutant).subscribe(()=> (this.mutants = this.mutants.filter((m)=>m.id!==mutant.id)))
-  // }
-
-  // editMutants(mutant: Mutants){
-  //   this.mutantService.updateMutants(mutant).subscribe()
-  // }
-
   editMutants(row:any){
     this.dialog.open(AddMutantComponent,{
       width: '30%',
@@ -76,70 +63,6 @@ export class AdminComponent implements OnInit {
         this.getMutants();
       }
      });
-    
-  }
-
-  addMutants(mutant: Mutants){
-    this.mutantService.addMutant(mutant).subscribe((mutant)=>(this.mutants.push(mutant)))
-  }
-
-  // openModal() {
-  //   const modalRef = this.modalService.open(AddMutantComponent,
-  //     {
-  //       scrollable: false,
-  //       centered: true
-  //     });
-
-  //   let data = {
-  //     prop1: 'Some Data',
-  //     prop2: 'From Parent Component',
-  //     prop3: 'This Can be anything'
-  //   }
-
-  //   modalRef.componentInstance.fromParent = data;
-  //   modalRef.result.then((result) => {
-  //     console.log(result);
-  //   }, (reason) => {
-  //   });
-  // }
-
-  // columns = [
-  //   {
-  //     columnDef: 'position',
-  //     header: 'No.',
-  //     cell: (mutant: Mutants) => {
-  //       return `${mutant.id}`
-  //     } ,
-  //   },
-  //   {
-  //     columnDef: 'name',
-  //     header: 'Nume actor',
-  //     cell: (mutant: Mutants) => `${mutant.nume} ${mutant.prenume}`,
-  //   },
-  //   {
-  //     columnDef: 'erou',
-  //     header: 'Nume erou',
-  //     cell: (mutant: Mutants) => `${mutant.numeDeErou}`,
-  //   },
-  //   {
-  //     columnDef: 'Xtra',
-  //     header: 'Nume Super',
-  //     cell: (mutant: Mutants) => `${mutant.numeSuper}`,
-  //   },
-  // ];
-  // dataSource = this.mutants;
-  // displayedColumns = this.columns.map(c => c.columnDef);
-
-  openDialog() {
-    const dialogRef = this.dialog.open(AddMutantComponent, {
-      width: '30%'
-    });
-
-    dialogRef.afterClosed().subscribe(val => {
-     if(val === 'save'){
-       this.getMutants();
-     }
-    });
   }
 
   deleteMutant(id: number){
@@ -154,6 +77,27 @@ export class AdminComponent implements OnInit {
         this.getMutants()
       }
     });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AddMutantComponent, {
+      width: '30%'
+    });
+
+    dialogRef.afterClosed().subscribe(val => {
+     if(val === 'save'){
+       this.getMutants();
+     }
+    });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
   
   }
