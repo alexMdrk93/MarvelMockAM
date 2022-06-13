@@ -3,5 +3,10 @@ export interface Movies{
     img: string;
     title: string;
     trailer: string;
-    date: number
+    side: string;
+    director: string;
+    duration: string;
+    genre: string;
+    description: string;
+    date: string
 }

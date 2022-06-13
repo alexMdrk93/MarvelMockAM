@@ -28,6 +28,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CharMutCardComponent } from './components/char-mut-card/char-mut-card.component';
 import { AddMutantComponent } from './components/add-mutant/add-mutant.component';
+import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AddMutantComponent } from './components/add-mutant/add-mutant.component
     MoviesComponent,
     AdminComponent,
     CharMutCardComponent,
-    AddMutantComponent
+    AddMutantComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,

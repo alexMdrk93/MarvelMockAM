@@ -1,7 +1,9 @@
-import { Component, Input, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { Mutants } from 'src/app/Mutants';
+import { Movies } from 'src/app/Movies';
 import { MutantsService } from 'src/app/services/mutants.service';
+import { MoviesService } from 'src/app/services/movies.service';
 import { AddMutantComponent } from '../add-mutant/add-mutant.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ThemePalette } from '@angular/material/core';
@@ -10,6 +12,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CharMutCardComponent } from '../char-mut-card/char-mut-card.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MovieCardComponent } from '../movies/movie-card/movie-card.component';
 
 
 
@@ -23,16 +26,20 @@ export class AdminComponent implements OnInit {
   @Input() backgroundColor: ThemePalette;
   @Input() color: ThemePalette;
   mutants: Mutants[] = [];
-  title = 'Create mutant modal';
+  movies: Movies[] =[];
   displayedColumns: string[] = ['nume', 'prenume', 'numeDeErou', 'numeSuper', 'Actiuni'];
   dataSource!: MatTableDataSource<Mutants>;
-  @ViewChild(MatPaginator)   paginator!: MatPaginator;
-  @ViewChild(MatSort)
-  sort!: MatSort;
+  @ViewChild('paginatorMutant', {static: true})   paginatorMutant!: MatPaginator;
+  @ViewChild('sortMutant', {static: true})  sortMutant!: MatSort;
+  displayedColumnsM: string[] = ['title', 'director', 'date', 'duration', 'Actiuni'];
+  dataSourceM!: MatTableDataSource<Movies>;
+  @ViewChild('paginatorMovie', {static: true})   paginatorMovie!: MatPaginator;
+  @ViewChild('sortMovie', {static: true})  sortMovie!: MatSort;
+  
 
-  constructor(private mutantService: MutantsService, public dialog: MatDialog, private snackBar: MatSnackBar) {}
+  constructor(private mutantService: MutantsService, public dialog: MatDialog, private snackBar: MatSnackBar, private moviesServ:MoviesService) {}
 
-  ngOnInit(): void {this.getMutants()}
+  ngOnInit(): void {this.getMutants(); this.getMovies()}
 
   addMutants(mutant: Mutants){
     this.mutantService.addMutant(mutant).subscribe((mutant)=>(this.mutants.push(mutant)))
@@ -54,7 +61,7 @@ export class AdminComponent implements OnInit {
         }),
         tap(console.log)
     )
-    .subscribe((mutant) => {this.mutants = mutant; this.dataSource = new MatTableDataSource(mutant); this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort})
+    .subscribe((mutant) => {this.mutants = mutant; this.dataSource = new MatTableDataSource(mutant); this.dataSource.paginator = this.paginatorMutant; this.dataSource.sort = this.sortMutant})
   }
 
   editMutants(row:any){
@@ -105,12 +112,54 @@ export class AdminComponent implements OnInit {
     this.snackBar.open(message, action);
   }
 
-  applyFilter(event: Event) {
+  applyFilterMutant(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+  addMovies(movie: Movies){
+    this.moviesServ.addMovies(movie).subscribe((movie)=>(this.movies.push(movie)))
+  }
+
+  getMovies(){
+    this.moviesServ.getMovies().pipe(
+      map(movies => { 
+        return movies.map(
+          (movie) =>({
+            id: movie.id,
+            title: movie.title,
+            img: movie.img,
+            trailer: movie.trailer,
+            side: movie.side,
+            director: movie.director,
+            duration: movie.duration,
+            genre: movie.genre,
+            description: movie.description,
+            date: movie.date
+          }),
+          )
+        })
+    ).subscribe((movie) => {this.movies = movie; this.dataSourceM = new MatTableDataSource(movie); this.dataSourceM.paginator = this.paginatorMovie; this.dataSourceM.sort = this.sortMovie})
+  }
+
+  showMovies(row:any){
+    this.dialog.open(MovieCardComponent,{
+      width: '40%',
+      data:row
+    });
+  }
+
+
+  applyFilterMovie(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceM.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSourceM.paginator) {
+      this.dataSourceM.paginator.firstPage();
     }
   }
   

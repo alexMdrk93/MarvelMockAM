@@ -5,56 +5,96 @@
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/thorloveandthunder_lob_crd_04.jpg",
       "title": "THOR: LOVE AND THUNDER",
       "trailer": "https://www.youtube.com/watch?v=Go8nTmfrQd8",
-      "date": 2022
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/thorloveandthunder_lob_mas_dsk_02_0.jpg",
+      "date": "2022",
+      "director": "Taika Waititi",
+      "duration": "134 min",
+      "genre": "Action, Adventure, Comedy",
+      "description": "Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr the God Butcher, who intends to make the gods extinct."
     },
     {
       "id": 2,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/doctorstrangeinthemultiverseofmadness_lob_crd_02_3.jpg",
       "title": "Doctor Strange in the Multiverse of Madness",
       "trailer": "https://www.youtube.com/watch?v=Rt_UqUm38BI",
-      "date": 2022
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/doctorstrangeinthemultiverseofmadness_lob_mas_mob_08b.jpg",
+      "date": "2022",
+      "director": "Sam Raimi",
+      "duration": "126 min",
+      "genre": "Action, Adventure, Fantasy",
+      "description": "Doctor Strange teams up with a mysterious teenage girl from his dreams who can travel across multiverses, to battle multiple threats, including other-universe versions of himself, which threaten to wipe out millions across the multiverse. They seek help from Wanda the Scarlet Witch, Wong and others."
     },
     {
       "id": 3,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-mannowayhome_lob_crd_03.jpg",
       "title": "SPIDER-MAN: No way home",
       "trailer": "https://www.youtube.com/watch?v=ZYzbalQ6Lg8",
-      "date": 2021
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-man_no_way_home_lob_mas_mob_02a.jpg",
+      "date": "2021",
+      "director": "Jon Watts",
+      "duration": "148 min",
+      "genre": "Action, Adventure, Fantasy",
+      "description": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man."
     },
     {
       "id": 4,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/eternals_lob_crd_06.jpg",
       "title": "Eternals",
       "trailer": "https://www.youtube.com/watch?v=x_me3xsvDgk",
-      "date": 2021
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/eternals_lob_mas_mob_03.jpg",
+      "date": "2021",
+      "director": "Chloé Zhao",
+      "duration": "156 min",
+      "genre": "Action, Adventure, Fantasy",
+      "description": "The saga of the Eternals, a race of immortal beings who lived on Earth and shaped its history and civilizations."
     },
     {
       "id": 5,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/shangchi_lob_crd_07.jpg",
       "title": "Shang-Chi and the Legend of the Ten Rings",
       "trailer": "https://www.youtube.com/watch?v=8YjFbMbfXaQ",
-      "date": 2021
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/shangchi_lob_mas_mob_01.jpg",
+      "date": "2021",
+      "director": "Destin Daniel Cretton",
+      "duration": "132 min",
+      "genre": "Action, Adventure, Fantasy",
+      "description": "Shang-Chi, the master of weaponry-based Kung Fu, is forced to confront his past after being drawn into the Ten Rings organization."
     },
     {
       "id": 6,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/blackwidow_lob_crd_06.jpg",
       "title": "Black Widow",
       "trailer": "https://www.youtube.com/watch?v=ybji16u608U",
-      "date": 2021
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/blackwidow_lob_mas_mob_17.jpg",
+      "date": "2021",
+      "director": "Cate Shortland",
+      "duration": "134 min",
+      "genre": "Action, Adventure, Sci-Fi",
+      "description": "Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises."
     },
     {
       "id": 7,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-manfarfromhome_lob_crd_04_0.jpg",
       "title": "Spider-Man: Far From Home",
       "trailer": "https://www.youtube.com/watch?v=Nt9L1jCKGnE",
-      "date": 2019
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-manfarfromhome_lob_mas_mob_02.jpg",
+      "date": "2019",
+      "director": "Jon Watts",
+      "duration": "129 min",
+      "genre": "Action, Adventure, Sci-Fi",
+      "description": "Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever."
     },
     {
       "id": 8,
       "img": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_crd_05.jpg",
       "title": "AVENGERS: ENDGAME",
       "trailer": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
-      "date": 2019
+      "side": "https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_mas_mob_01.jpg",
+      "date": "2019",
+      "director": "Joe Russo, Anthony Russo",
+      "duration": "181 min",
+      "genre": "Action, Adventure, Drama",
+      "description": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe."
     }
   ],
   "Characters": [
