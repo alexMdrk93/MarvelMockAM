@@ -14,9 +14,8 @@ export class AddMutantComponent implements OnInit {
 
   mutantForm !: FormGroup
   actionBtn: string = "Save"
-  _snackBar!: MatSnackBar;
 
-  constructor(private formBuilder: FormBuilder, private mutantService: MutantsService, private dialogRef: MatDialogRef<AddMutantComponent>, @Inject(MAT_DIALOG_DATA) public editdata: any) { }
+  constructor(private formBuilder: FormBuilder, private mutantService: MutantsService, private dialogRef: MatDialogRef<AddMutantComponent>, @Inject(MAT_DIALOG_DATA) public editdata: any, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.mutantForm = this.formBuilder.group({
@@ -39,18 +38,18 @@ export class AddMutantComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this.snackBar.open(message, action);
   }
 
   updateMutant() {
     this.mutantService.updateMutants(this.mutantForm.value, this.editdata.id).subscribe({
       next: (res)=>{
-        alert("Eroul a fost actualizat cu succes");
+        this.openSnackBar("Eroul a fost actualizat cu succes", "Ok");
           this.mutantForm.reset();
           this.dialogRef.close('update')
       },
       error: ()=>{
-        alert('Eroare la actualizare erou')
+        this.openSnackBar("Eroare la actualizare erou", "Inchide")
       }
     })
   }
@@ -59,7 +58,7 @@ export class AddMutantComponent implements OnInit {
     if(!this.editdata){
       this.mutantService.addMutant(this.mutantForm.value).subscribe({
         next: (res)=>{
-          alert("Eroul a fost adaugat cu succes");
+          this.openSnackBar("Eroul a fost creat cu succes", "Ok");
           this.mutantForm.reset();
           this.dialogRef.close('save')
         }

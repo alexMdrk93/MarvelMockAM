@@ -1,4 +1,4 @@
-<div class="card text-center border border-primary shadow-0 w-25">
+<!-- <div class="card text-center border border-primary shadow-0 w-25">
   <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
     <img src="{{ mutant.img }}" class="img-fluid" />
     <a href="#!">
@@ -19,5 +19,55 @@
     <button type="button" class="btn btn-danger" (click)="onDelete()">
       Delete
     </button>
+  </div>
+</div> -->
+
+<!-- <mat-card>
+  <mat-card-header>
+    <div class="headerContainer">
+      <div class="headerText">
+        <mat-card-title> Title </mat-card-title>
+        <mat-card-subtitle> Subtitle </mat-card-subtitle>
+      </div>
+      <div class="headerImage">
+        <img
+          mat-card-lg-image
+          src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/004tho_ons_mas_dsk_01_0.jpg"
+          alt="mutant image"
+        />
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="contentContainer">
+      <p>Nume Actor</p>
+      <p>Descriere</p>
+      <img mat-card-md-image src="" alt="" />
+    </div>
+  </mat-card-content>
+</mat-card> -->
+
+<div class="wrapper">
+  <div class="headerContainer">
+    <div class="headerText">
+      <h2>{{ data.numeDeErou }}</h2>
+      <h4>{{ data.numeSuper }}</h4>
+    </div>
+    <div class="headerImage">
+      <img class="headerImage__img" src="{{ data.img }}" alt="" />
+    </div>
+  </div>
+  <div class="contentContainer">
+    <div class="contentImage">
+      <img
+        class="contentImage__img"
+        src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/004tho_ons_mas_dsk_01_0.jpg"
+        alt=""
+      />
+    </div>
+    <div class="contentText">
+      <p>{{ data.nume }} {{ data.prenume }}</p>
+      <p>Actor description</p>
+    </div>
   </div>
 </div>

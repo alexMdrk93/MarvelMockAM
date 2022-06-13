@@ -8,6 +8,9 @@ import { ThemePalette } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CharMutCardComponent } from '../char-mut-card/char-mut-card.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -27,7 +30,7 @@ export class AdminComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private mutantService: MutantsService, public dialog: MatDialog) {}
+  constructor(private mutantService: MutantsService, public dialog: MatDialog, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {this.getMutants()}
 
@@ -68,14 +71,21 @@ export class AdminComponent implements OnInit {
   deleteMutant(id: number){
     this.mutantService.deleteMutants(id).subscribe({
       next: (res)=>{
-        alert("Eroul a fost sters cu succes");
+        this.openSnackBar("Eroul a fost sters cu succes", "Inchide");
       },
       error: ()=>{
-        alert('Eroare la stergere erou')
+        this.openSnackBar("Eroare la stergere erou", "Inchide")
       },
       complete: ()=>{
         this.getMutants()
       }
+    });
+  }
+
+  showMutants(row:any){
+    this.dialog.open(CharMutCardComponent,{
+      width: '40%',
+      data:row
     });
   }
 
@@ -89,6 +99,10 @@ export class AdminComponent implements OnInit {
        this.getMutants();
      }
     });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action);
   }
 
   applyFilter(event: Event) {

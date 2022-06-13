@@ -1,0 +1,34 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid lightgrey;
+    margin: 0 0 30px 0;
+}
+
+.headerText{
+    padding-left: 80px;
+    margin: auto 0;
+}
+
+.contentContainer{
+    display: flex;
+}
+
+.contentImage{
+    padding-left: 80px;
+}
+
+.contentText{
+    margin: auto 0;
+    padding-left: 40px;
+}
+
+.contentImage__img{
+width: 200px;
+height: 200px;
+}
+
+.headerImage__img{
+    width: 300px;
+    height: 300px;
+}
